@@ -1,0 +1,98 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #f9fbfd);
+    color: #333;
+    text-align: center;
+}
+
+/* Title */
+h2 {
+    margin-top: 40px;
+    font-size: 26px;
+    color: #1f2d3d;
+}
+
+/* Container for list */
+#list {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 10px;
+}
+
+/* Menu Item Card */
+.menu-item {
+    background: #ffffff;
+    padding: 15px 20px;
+    margin: 12px 0;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.menu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Menu text */
+.menu-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Buttons container */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Edit Button */
+.edit-btn {
+    background: linear-gradient(135deg, #4facfe, #007bff);
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: linear-gradient(135deg, #ff4d4d, #e60023);
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+.edit-btn:hover,
+.delete-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Empty state */
+#list:empty::after {
+    content: "No menu items available";
+    display: block;
+    margin-top: 20px;
+    color: #777;
+}

@@ -1,0 +1,64 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #eef2f7, #f9fbfd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    margin-bottom: 20px;
+    color: #1f2d3d;
+}
+
+/* Menu Card */
+.menu-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+/* Hover */
+.menu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+/* Meal Items */
+.meal {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Labels */
+.meal span {
+    font-weight: 600;
+    color: #007bff;
+}
+
+/* Empty state */
+.empty {
+    margin-top: 20px;
+    color: #777;
+}
