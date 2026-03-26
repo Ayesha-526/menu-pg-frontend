@@ -18,16 +18,12 @@ async function addMenu() {
             body: JSON.stringify({ date, breakfast, lunch, dinner })
         });
 
-        if (res.ok) {
-            alert("✅ Menu Added!");
+        const data = await res.json();
 
-            // Clear fields
-            document.getElementById("date").value = "";
-            document.getElementById("breakfast").value = "";
-            document.getElementById("lunch").value = "";
-            document.getElementById("dinner").value = "";
+        if (res.ok) {
+            alert(data.message);
         } else {
-            alert("Error adding menu");
+            alert(data.error);
         }
 
     } catch (err) {

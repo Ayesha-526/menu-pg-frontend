@@ -1,42 +1,34 @@
 const menuList = document.getElementById("menuList");
 
-function getTodayDate() {
+function getToday() {
     return new Date().toISOString().split("T")[0];
 }
 
-async function loadTodayMenu() {
-    try {
-        const res = await fetch("/menu");
-        const data = await res.json();
+async function loadToday() {
+    const res = await fetch("/menu");
+    const data = await res.json();
 
-        const today = getTodayDate();
+    const today = getToday();
 
-        menuList.innerHTML = "";
+    const todayMenu = data.filter(m => m.date === today);
 
-        const todayMenus = data.filter(m => m.date === today);
-
-        if (todayMenus.length === 0) {
-            menuList.innerHTML = "<li>No menu for today</li>";
-            return;
-        }
-
-        todayMenus.forEach(m => {
-            const li = document.createElement("li");
-            li.className = "menu-item";
-
-            li.innerHTML = `
-                🍳 ${m.breakfast || "-"} |
-                🍛 ${m.lunch || "-"} |
-                🍽 ${m.dinner || "-"}
-            `;
-
-            menuList.appendChild(li);
-        });
-
-    } catch (err) {
-        console.error(err);
-        menuList.innerHTML = "<li>Error loading menu</li>";
+    if (todayMenu.length === 0) {
+        menuList.innerHTML = "<li>No menu for today</li>";
+        return;
     }
+
+    let html = "";
+
+    todayMenu.forEach(m => {
+        html += `
+        <li>
+            🍳 ${m.breakfast} |
+            🍛 ${m.lunch} |
+            🍽 ${m.dinner}
+        </li>`;
+    });
+
+    menuList.innerHTML = html;
 }
 
-loadTodayMenu();
+loadToday();
