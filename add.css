@@ -16,22 +16,27 @@ body {
 }
 
 /* Container */
-body > * {
+.container {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    width: 320px;
     text-align: center;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Title */
-h2 {
+/* Heading */
+.container h2 {
     margin-bottom: 20px;
     color: #1f2d3d;
 }
 
 /* Inputs */
-input {
-    display: block;
-    width: 280px;
-    margin: 10px auto;
+.container input {
+    width: 100%;
     padding: 10px;
+    margin: 8px 0;
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 14px;
@@ -39,27 +44,14 @@ input {
 }
 
 /* Input focus */
-input:focus {
+.container input:focus {
     border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
 /* Button */
-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #4facfe, #007bff);
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* Button hover */
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0,123,255,0.3);
-}
+.container button {
+    width: 100%;
+    padding: 10px;
+} 
