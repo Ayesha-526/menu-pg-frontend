@@ -13,7 +13,7 @@ window.addMenu = async function () {
     }
 
     try {
-        const res = await fetch("/menu", {
+        const res = await fetch("https://menu-pg-backend.onrender.com/menu", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
