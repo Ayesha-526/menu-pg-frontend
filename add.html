@@ -13,17 +13,22 @@
 <div class="container">
     <h2>🍽 Add Menu</h2>
 
-    <input type="date" id="date" required>
+    <input type="date" id="date">
 
-    <input type="text" id="breakfast" placeholder="Breakfast" required>
-    <input type="text" id="lunch" placeholder="Lunch" required>
-    <input type="text" id="dinner" placeholder="Dinner" required>
+    <input type="text" id="breakfast" placeholder="Breakfast">
+    <input type="text" id="lunch" placeholder="Lunch">
+    <input type="text" id="dinner" placeholder="Dinner">
 
-    <button onclick="addMenu()">➕ Add Menu</button>
+    <button id="addBtn">➕ Add Menu</button>
 </div>
 
 <!-- JS -->
 <script src="js/add.js"></script>
+
+<!-- 🔥 IMPORTANT: connect button to JS -->
+<script>
+    document.getElementById("addBtn").addEventListener("click", addMenu);
+</script>
 
 </body>
 </html>
