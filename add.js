@@ -1,3 +1,5 @@
+const BASE_URL = "https://menu-pg-backend.onrender.com"; // 🔥 paste here
+
 async function addMenu() {
     const date = document.getElementById("date").value;
     const breakfast = document.getElementById("breakfast").value;
@@ -5,29 +7,18 @@ async function addMenu() {
     const dinner = document.getElementById("dinner").value;
 
     if (!date || !breakfast || !lunch || !dinner) {
-        alert("Please fill all fields");
+        alert("Fill all fields");
         return;
     }
 
-    try {
-        const res = await fetch("/menu", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ date, breakfast, lunch, dinner })
-        });
+    const res = await fetch(BASE_URL + "/menu", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ date, breakfast, lunch, dinner })
+    });
 
-        const data = await res.json();
-
-        if (res.ok) {
-            alert(data.message);
-        } else {
-            alert(data.error);
-        }
-
-    } catch (err) {
-        console.error(err);
-        alert("Server error");
-    }
+    const data = await res.json();
+    alert(data.message || data.error);
 }

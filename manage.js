@@ -1,55 +1,45 @@
+const BASE_URL = "https://menu-pg-backend.onrender.com"; // 🔥 paste here
 const list = document.getElementById("list");
 
-async function load() {
-    const res = await fetch("/menu");
+async function loadMenus() {
+    const res = await fetch(BASE_URL + "/menu");
     const data = await res.json();
-
-    if (data.length === 0) {
-        list.innerHTML = "<p>No menu available</p>";
-        return;
-    }
 
     let html = "";
 
     data.forEach(m => {
         html += `
         <div class="menu-item">
-            <div>
-                <b>${m.date}</b><br>
-                🍳 ${m.breakfast}<br>
-                🍛 ${m.lunch}<br>
-                🍽 ${m.dinner}
-            </div>
+            <b>${m.date}</b><br>
+            🍳 ${m.breakfast}<br>
+            🍛 ${m.lunch}<br>
+            🍽 ${m.dinner}<br>
 
-            <div>
-                <button onclick="editMenu('${m._id}')">Edit</button>
-                <button onclick="deleteMenu('${m._id}')">Delete</button>
-            </div>
+            <button onclick="deleteMenu('${m._id}')">Delete</button>
+            <button onclick="editMenu('${m._id}')">Edit</button>
         </div>`;
     });
 
     list.innerHTML = html;
 }
 
-// DELETE
 async function deleteMenu(id) {
-    await fetch("/menu/" + id, { method: "DELETE" });
-    load();
+    await fetch(BASE_URL + "/menu/" + id, { method: "DELETE" });
+    loadMenus();
 }
 
-// EDIT
 async function editMenu(id) {
-    const breakfast = prompt("Breakfast:");
-    const lunch = prompt("Lunch:");
-    const dinner = prompt("Dinner:");
+    const breakfast = prompt("Breakfast");
+    const lunch = prompt("Lunch");
+    const dinner = prompt("Dinner");
 
-    await fetch("/menu/" + id, {
+    await fetch(BASE_URL + "/menu/" + id, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ breakfast, lunch, dinner })
     });
 
-    load();
+    loadMenus();
 }
 
-load();
+loadMenus();
