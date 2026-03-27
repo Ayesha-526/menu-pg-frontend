@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="add.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Menu</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/add.css">
 </head>
 <body>
-<h2>Add Menu</h2>
-<input type="date" id="date">
-<input type="text" id="breakfast" placeholder="Breakfast">
-<input type="text" id="lunch" placeholder="Lunch">
-<input type="text" id="dinner" placeholder="Dinner">
-<button onclick="addMenu()">Add</button>
-<script src="add.js"></script>
+
+<div class="container">
+    <h2>🍽 Add Menu</h2>
+
+    <input type="date" id="date" required>
+
+    <input type="text" id="breakfast" placeholder="Breakfast" required>
+    <input type="text" id="lunch" placeholder="Lunch" required>
+    <input type="text" id="dinner" placeholder="Dinner" required>
+
+    <button onclick="addMenu()">➕ Add Menu</button>
+</div>
+
+<!-- JS -->
+<script src="js/add.js"></script>
+
 </body>
 </html>
